@@ -1,7 +1,7 @@
 # iaklogger
-A (very) simple logger for python. Nothing fancy, basic functionality to start working right ahead
+## A (very) simple logger for python. 
 
-
+Nothing fancy, basic functionality to start working right ahead. 
 Some examples below to understand the usage:
 
 ### EXAMPLE 1: Printing by default
@@ -174,3 +174,7 @@ import iaklogger as lg
 
 # maximum log file size in mb (Default = 10 mb)
 lg.OPTIONS.log_file_max_size_mb = 5
+```
+## License
+
+MIT
