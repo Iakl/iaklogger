@@ -17,9 +17,9 @@ class OPTIONS:
     """bool (Default: False): True to mute DEFAULT tag."""
     mute_all = False
     """bool (Default: False): True to mute all logs."""
-    print_tags = False
+    show_tags = False
     """bool (Default: False): True to print tags before the message."""
-    print_time = False
+    show_time = False
     """bool (Default: False): True to print time before the message."""
 
 
@@ -39,9 +39,9 @@ def log(printable_obj, tags=[DEFAULT]):
     if not check_elements(tags, OPTIONS.allowed_tags) and (not check_elements(tags, [DEFAULT]) or OPTIONS.mute_default):
         return False
     elif not OPTIONS.mute_all:
-        if OPTIONS.print_tags:
+        if OPTIONS.show_tags:
             printable_obj = f"[{'-'.join(tags)}] {printable_obj}"
-        if OPTIONS.print_time:
+        if OPTIONS.show_time:
             printable_obj = f"{time.strftime('%Y-%m-%d %H:%M:%S')} {printable_obj}"
         print(printable_obj)
         if OPTIONS.log_file:
