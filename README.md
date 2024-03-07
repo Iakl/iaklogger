@@ -32,6 +32,8 @@ Hi!, I'm Iakl! This prints if tags 'IAKL' and 'Welcome' are allowed
 ```python
 import iaklogger as lg
 
+lg.OPTIONS.allowed_tags = ["IAKL", "Welcome"]
+
 lg.log("Hi Iakl!, I'm Losa! This will not print because tag 'LOSA' is not allowed, sadly", tags=["LOSA", "Welcome"])
 ```
 output (blank):
