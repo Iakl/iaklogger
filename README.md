@@ -64,15 +64,36 @@ lg.OPTIONS.show_tags = True
 
 lg.log("Lets show the tags!", tags=["IAKL", "Welcome"])
 lg.log("Nice!", tags=["LOSA", "Welcome"])
+lg.log("Nice!")
 
 ```
 output:
 ```
 [IAKL-Welcome] Lets show the tags!
 [LOSA-Welcome] Nice!
+[DEFAULT] Nice!
 ```
 
-### EXAMPLE 6: Filtering tags #2
+### EXAMPLE 6: Filtering Default tag
+```python
+import iaklogger as lg
+
+lg.OPTIONS.allowed_tags = ["IAKL", "Welcome", "LOSA"]
+lg.OPTIONS.show_tags = True
+lg.OPTIONS.mute_default = True
+
+lg.log("Now Default can't interrupt", tags=["IAKL", "Welcome"])
+lg.log("Nice!", tags=["LOSA", "Welcome"])
+lg.log("Hey!")
+
+```
+output:
+```
+[IAKL-Welcome] Now Default can't interrupt
+[LOSA-Welcome] Nice!
+```
+
+### EXAMPLE 7: More Filtering tags 
 ```python
 import iaklogger as lg
 
@@ -84,29 +105,14 @@ lg.log("No more Welcome tags!", tags=["IAKL", "Welcome"])
 lg.OPTIONS.allowed_tags = ["IAKL", "LOSA"]
 
 lg.log("Ok!", tags=["LOSA", "Welcome"])
+lg.log("Hey!", tags=["LOSA", "Welcome"])
+lg.log("Yes!")
 
 ```
 output:
 ```
 [IAKL-Welcome] No more Welcome tags!
-```
-
-### EXAMPLE 7: Filtering Default tag
-```python
-import iaklogger as lg
-
-lg.OPTIONS.show_tags = True
-
-lg.log("Before filtering Default")
-
-lg.OPTIONS.mute_default = True
-
-lg.log("After filtering Default")
-
-```
-output:
-```
-[DEFAULT] Before filtering Default
+[DEFAULT] Yes!
 ```
 
 ### EXAMPLE 8: Muting all tags

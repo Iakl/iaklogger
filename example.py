@@ -1,19 +1,15 @@
 import iaklogger as lg
 
-lg.OPTIONS.allowed_tags = ["IAKL", "LOSA"]
+lg.OPTIONS.allowed_tags = ["IAKL", "Welcome", "LOSA"]
 lg.OPTIONS.show_tags = True
-lg.OPTIONS.log_file = "log.txt"
 
-lg.log("Hi everyone, I will record this conversation")
-lg.log("Hi Default, Ok", tags=["IAKL", "CONVERSATION"])
-lg.log("Hi Default, Ok for me too", tags=["LOSA", "CONVERSATION"])
+lg.log("No more Welcome tags!", tags=["IAKL", "Welcome"])
 
-lg.OPTIONS.allowed_tags = ["IAKL", "LOSA", "CONVERSATION"]
-lg.OPTIONS.show_time = True
+lg.OPTIONS.allowed_tags = ["IAKL", "LOSA"]
 
-lg.log("Ok Iakl, you start")
-lg.log("No no, you Losa", tags=["IAKL", "CONVERSATION"])
-lg.log("Why me? you Default", tags=["LOSA", "CONVERSATION"])
+lg.log("Ok!", tags=["LOSA", "Welcome"])
+lg.log("Hey!", tags=["LOSA", "Welcome"])
+lg.log("Yes!")
 
 # output: Hi! This prints by default
 
