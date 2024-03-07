@@ -45,8 +45,7 @@ import iaklogger as lg
 
 lg.OPTIONS.allowed_tags = ["IAKL", "Welcome", "LOSA"]
 
-lg.log("Let's allow tag 'LOSA' so Losa can talk too!",
-       tags=["IAKL", "Welcome"])
+lg.log("Let's allow tag 'LOSA' so Losa can talk too!", tags=["IAKL", "Welcome"])
 
 lg.log("Oh, It works!, but, how do we know now who is talking?", tags=["LOSA", "Welcome"])
 ```
