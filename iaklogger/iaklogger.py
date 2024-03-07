@@ -1,7 +1,4 @@
-# from enum import Enum
 import time
-# import numpy as np
-
 
 DEFAULT = "DEFAULT"  # prints default messages
 
@@ -23,8 +20,8 @@ class OPTIONS:
     """bool (Default: False): True to print time before the message."""
 
 
-def check_elements(list1, list2):
-    return all(element in list2 for element in list1)
+def check_tags(list1, list2):
+    return all(tag in list2 for tag in list1)
 
 
 def log(printable_obj, tags=[DEFAULT]):
@@ -36,7 +33,7 @@ def log(printable_obj, tags=[DEFAULT]):
     Returns:
         bool: True if the message was logged, False otherwise.
     """
-    if not check_elements(tags, OPTIONS.allowed_tags) and (not check_elements(tags, [DEFAULT]) or OPTIONS.mute_default):
+    if not check_tags(tags, OPTIONS.allowed_tags) and (not check_tags(tags, [DEFAULT]) or OPTIONS.mute_default):
         return False
     elif not OPTIONS.mute_all:
         if OPTIONS.show_tags:
