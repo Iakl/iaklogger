@@ -14,6 +14,8 @@ class OPTIONS:
     """bool (Default: False): True to mute DEFAULT tag."""
     mute_all = False
     """bool (Default: False): True to mute all logs."""
+    newline_after_tag = False
+    """bool (Default: False): True to add a newline after tags."""
     show_tags = False
     """bool (Default: False): True to print tags before the message."""
     show_time = False
@@ -24,7 +26,7 @@ def check_tags(list1, list2):
     return all(tag in list2 for tag in list1)
 
 
-def log(printable_obj, tags=[DEFAULT]):
+def log(printable_obj, tags=[DEFAULT], new_line=False):
     """
     Logs the message to the console and/or to a file.
     Args:
@@ -33,14 +35,21 @@ def log(printable_obj, tags=[DEFAULT]):
     Returns:
         bool: True if the message was logged, False otherwise.
     """
+    new_line_str = ""
+    tags_str = ""
+    time_str = ""
     if not check_tags(tags, OPTIONS.allowed_tags) and (not check_tags(tags, [DEFAULT]) or OPTIONS.mute_default):
         return False
     elif not OPTIONS.mute_all:
+        if OPTIONS.newline_after_tag or new_line:
+            new_line_str = "\n"
         if OPTIONS.show_tags:
-            printable_obj = f"[{'-'.join(tags)}] {printable_obj}"
+            tags_str = f"[{'-'.join(tags)}] "
+            # printable_obj = f"[{'-'.join(tags)}]{new_line}{printable_obj}"
         if OPTIONS.show_time:
-            printable_obj = f"{time.strftime('%Y-%m-%d %H:%M:%S')} {printable_obj}"
-        print(printable_obj)
+            time_str = f'{time.strftime("%Y-%m-%d %H:%M:%S")} '
+            # printable_obj = f"{time.strftime('%Y-%m-%d %H:%M:%S')} {printable_obj}"
+        print(f"{time_str}{tags_str}{new_line_str}{printable_obj}")
         if OPTIONS.log_file:
             log_to_file(printable_obj)
         return True
