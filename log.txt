@@ -1,5 +1,0 @@
-Log to file
-Large log message
-Log to file
-Large log message
-Debug

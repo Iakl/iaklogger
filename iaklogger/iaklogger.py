@@ -1,4 +1,5 @@
 import time
+import warnings
 
 DEFAULT = "DEFAULT"  # prints default messages
 
@@ -56,6 +57,13 @@ def log(printable_obj, tags=[DEFAULT], new_line=False):
 
 
 def log_to_file(printable_obj):
+    """
+    Logs the message to a file. The path to the file has to be set in the OPTIONS.log_file attribute.
+    Args:
+        printable_obj (str): Message to log.
+    Returns:
+        None
+    """
     printable_obj_size = len(printable_obj.encode('utf-8'))
     with open(OPTIONS.log_file, "a+") as f:
         f.seek(0, 2)  # Mueve el puntero al final del archivo
@@ -71,3 +79,21 @@ def log_to_file(printable_obj):
             f.truncate()
             f.writelines(lines)
             f.write(printable_obj + "\n")
+
+
+def set_options(opts):
+    """
+    Set OPTIONS from the provided dictionary opts.
+
+    Parameters:
+        opts (dict): A dictionary containing the options to be set.
+
+    Returns:
+        None
+    """
+    if not isinstance(opts, dict):
+        raise TypeError("opts must be a dictionary")
+    for key, value in opts.items():
+        if key not in OPTIONS.__dict__:
+            warnings.warn(f"Option {key} not found in OPTIONS")
+        setattr(OPTIONS, key, value)

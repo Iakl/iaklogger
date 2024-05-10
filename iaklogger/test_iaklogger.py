@@ -42,24 +42,28 @@ def test_log():
     assert iak.log("Invalid tag", tags=["ERROR", "DEBUG"]) == False
 
 
-iak.OPTIONS.allowed_tags = [
-    "FORECAST",
-    "RESULTS",
-    "OPTIMIZER",
-    "SOLVING",
-    "CONTINUOUS",
-    "SYSMANAGER",
-    "NETWORK",
-    "LOADING",
-    "UPDATE",
-    "DEBUG",
-    "TESTS",
-    "ERROR",
-    "INFO",
-    "WARNING",
-    "CONVERSATION",
-    "APP"
-]
-iak.OPTIONS.show_tags = True
+options = {
+    "allowed_tags": [
+        "FORECAST",
+        "RESULTS",
+        "OPTIMIZER",
+        "SOLVING",
+        "CONTINUOUS",
+        "SYSMANAGER",
+        "NETWORK",
+        "LOADING",
+        "UPDATE",
+        "DEBUG",
+        "TESTS",
+        "ERROR",
+        "INFO",
+        "WARNING",
+        "CONVERSATION",
+        "APP"
+    ],
+    "show_tags": True,
+}
+
+iak.set_options(options)
 
 test_log()
