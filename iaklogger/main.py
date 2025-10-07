@@ -143,6 +143,8 @@ def log(printable_obj, tags=[], new_line=False, color=None, caller=None):
         inspect.stack()[1]) if caller is None else caller
     if caller_class_name in registered_tags and color is None:
         color = registered_tags[caller_class_name]
+    else:
+        caller_class_name = DEFAULT
 
     tags = prepend_tags + [caller_class_name] + tags
     if is_printable(tags):
