@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iaklogger"
+version = "1.0.9"
+description = "Very basic and easy logger with tag-based filtering"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "licence.txt"}
+authors = [
+    {name = "Iakl", email = "estebaniakl@gmail.com"}
+]
+keywords = ["logger", "easy", "print", "log", "basic", "logging", "tags", "filtering", "rich", "console"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Logging",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "rich>=10.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Iakl/iaklogger"
+Repository = "https://github.com/Iakl/iaklogger"
+Download = "https://github.com/Iakl/iaklogger/archive/refs/tags/v1.0.9.tar.gz"
+
+[tool.setuptools.packages.find]
+include = ["iaklogger*"]
