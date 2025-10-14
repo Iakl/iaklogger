@@ -11,7 +11,7 @@ setup.py
 .github/workflows/python-publish.yml
 dist/iaklogger-1.0.0.tar.gz
 iaklogger/__init__.py
-iaklogger/iaklogger.py
+iaklogger/main.py
 iaklogger/test_iaklogger.py
 iaklogger.egg-info/PKG-INFO
 iaklogger.egg-info/SOURCES.txt
